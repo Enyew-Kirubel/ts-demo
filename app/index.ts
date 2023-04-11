@@ -60,3 +60,14 @@ app.get("/", (req: ReqBody, res) => {
   }
   res.send("Hello World!");
 });
+
+app.post('/', async (req: ReqBody, res) => {
+  const value = await new Promise((resolve, reject) => {
+    if (req.data.type === "type1") {
+      return resolve(req.data);
+    } else {
+      return reject(new Error('not typeWan'))
+    }
+  })
+  return res.send(value)
+})
