@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "es6",
-    "moduleResolution": "node",
-    "outDir": "transpiled"
-  },
-  "lib": ["es2015"]
+    "esModuleInterop": true,
+    "outDir": "transpiled",
+    "allowJs": true,
+    "strict": true
+    // "strictNullChecks": true
+    // "noImplicitAny": true
+  }
 }
