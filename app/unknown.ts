@@ -1,6 +1,7 @@
-let value: unknown;
-
-let string = 'string'
+// const string: unknown = 'string'
+const string: any = "string";
 
 // string = value
-value = string
+const value: string = string;
+
+console.log(value);

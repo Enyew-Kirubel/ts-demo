@@ -1,4 +1,5 @@
-let value;
-let string = 'string';
+// const string: unknown = 'string'
+const string = "string";
 // string = value
-value = string;
+const value = string;
+console.log(value);
