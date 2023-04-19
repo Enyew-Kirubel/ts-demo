@@ -1,7 +1,6 @@
+"use strict";
 // const string: unknown = 'string'
-const string: any = "string";
-
+const string = "string";
 // string = value
-const value: string = string;
-
+const value = string;
 console.log(value);

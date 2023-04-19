@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const app = express();
 
 // interface DataType1 {
@@ -46,7 +46,8 @@ app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
 
-app.get("/", (req: ReqBody, res) => {
+app.get("/", (request, res) => {
+  const req = request as unknown as ReqBody;
   switch (req.data.type) {
     case "type1":
       console.log(req.data.otherData1);
@@ -61,13 +62,14 @@ app.get("/", (req: ReqBody, res) => {
   res.send("Hello World!");
 });
 
-app.post('/', async (req: ReqBody, res) => {
+app.post("/", async (request, res) => {
+  const req = request as unknown as ReqBody;
   const value = await new Promise((resolve, reject) => {
     if (req.data.type === "type1") {
       return resolve(req.data);
     } else {
-      return reject(new Error('not typeWan'))
+      return reject(new Error("not typeWan"));
     }
-  })
-  return res.send(value)
-})
+  });
+  return res.send(value);
+});
