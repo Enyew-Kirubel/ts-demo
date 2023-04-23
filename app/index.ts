@@ -47,7 +47,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (request, res) => {
-  const req = request as unknown as ReqBody;
+  const req = request.body as ReqBody;
   switch (req.data.type) {
     case "type1":
       console.log(req.data.otherData1);
@@ -63,7 +63,7 @@ app.get("/", (request, res) => {
 });
 
 app.post("/", async (request, res) => {
-  const req = request as unknown as ReqBody;
+  const req = request.query as unknown as ReqBody;
   const value = await new Promise((resolve, reject) => {
     if (req.data.type === "type1") {
       return resolve(req.data);
